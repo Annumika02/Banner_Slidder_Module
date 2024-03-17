@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */ -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table comment="dotsquares_bannerslider_bannerslider Table" engine="innodb" name="dotsquares_bannerslider_bannerslider" resource="default">
+        <column comment="Entity Id" identity="true" name="bannerslider_id" nullable="false" padding="6" unsigned="true" xsi:type="smallint" />
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="bannerslider_id" />
+        </constraint>
+        <column identity="false" name="shorting" nullable="true" xsi:type="int" />
+        <column length="255" name="title" nullable="true" xsi:type="varchar" />
+        <column length="255" name="discription" nullable="true" xsi:type="varchar" />
+        <column length="255" name="buttontitle" nullable="true" xsi:type="varchar" />
+        <column length="255" name="icon" nullable="true" xsi:type="varchar" />
+        <column name="buttonurl" nullable="true" xsi:type="text" />
+        <column name="status" nullable="true" xsi:type="text" />
+        <column length="255" name="type" nullable="true" xsi:type="varchar" />
+    </table>
+    <table comment="dotsquares_bannerslider_bannerslider Table" engine="innodb" name="orderexpostdata" resource="default">
+        <column comment="Entity Id" identity="true" name="order_export_id" nullable="false" padding="6" unsigned="true" xsi:type="smallint" />
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="order_export_id" />
+        </constraint>
+        <column length="255" name="from_order_id" nullable="true" xsi:type="varchar" />
+        <column length="255" name="from_incriment_id" nullable="true" xsi:type="varchar" />
+        <column length="255" name="to_order_id" nullable="true" xsi:type="varchar" />
+        <column length="255" name="to_incriment_id" nullable="true" xsi:type="varchar" />
+    </table>
+</schema>

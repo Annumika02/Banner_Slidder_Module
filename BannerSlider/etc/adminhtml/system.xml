@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dotsquares" translate="label" sortOrder="1000000">
+            <label>
+                <![CDATA[Dotsquares BannerSlider]]>
+            </label>
+        </tab>
+        <section id="dotsquares_bannerSlider" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>
+                <![CDATA[Banner Slider]]>
+            </label>
+            <tab>dotsquares</tab>
+            <resource>Dotsquares_BannerSlider::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[Version 1.0.0]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="banconfig" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <attribute type="expanded">0</attribute>
+                <field id="titlecolor" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title Color</label>
+                    <comment>color code for eg. #000000 </comment>
+                </field>
+                <field id="infinity" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Infinity Loop</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="nextprev" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Next/Prev Button </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="dotsnav" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Dots Navigation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="autoplay" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="pause" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autoplay Pause on hover</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="autoplay">1</field>
+                    </depends>
+                </field>
+                <field id="autoplay_timeout" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autoplay Timeout</label>
+                    <comment>Please enter the autoplay speed, Here 1000 mean 1 sec.</comment>
+                    <depends>
+                        <field id="autoplay">1</field>
+                    </depends>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

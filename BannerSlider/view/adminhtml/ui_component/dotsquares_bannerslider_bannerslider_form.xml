@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */ -->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">dotsquares_bannerslider_bannerslider_form.bannerslider_form_data_source</item>
+        </item>
+        <item name="label" translate="true" xsi:type="string">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button class="Dotsquares\BannerSlider\Block\Adminhtml\BannerSlider\Edit\BackButton" name="back" />
+            <button class="Dotsquares\BannerSlider\Block\Adminhtml\BannerSlider\Edit\DeleteButton" name="delete" />
+            <button class="Dotsquares\BannerSlider\Block\Adminhtml\BannerSlider\Edit\SaveButton" name="save" />
+            <button class="Dotsquares\BannerSlider\Block\Adminhtml\BannerSlider\Edit\SaveAndContinueButton" name="save_and_continue" />
+        </buttons>
+        <namespace>dotsquares_bannerslider_bannerslider_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>dotsquares_bannerslider_bannerslider_form.bannerslider_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="bannerslider_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save" />
+        </settings>
+        <dataProvider class="Dotsquares\BannerSlider\Model\BannerSlider\DataProvider" name="bannerslider_form_data_source">
+            <settings>
+                <requestFieldName>bannerslider_id</requestFieldName>
+                <primaryFieldName>bannerslider_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label>General</label>
+        </settings>
+        <field name="status" component="Magento_Ui/js/form/element/single-checkbox-toggle-notice" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                    <item name="notices" xsi:type="array">
+                        <item name="0" xsi:type="string" translate="true">Disable</item>
+                        <item name="1" xsi:type="string" translate="true">Enable</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Status</label>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field formElement="input" name="shorting" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">BannerSlider</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">shorting</label>
+                <dataScope>shorting</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field formElement="input" name="title" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">BannerSlider</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Title</label>
+                <dataScope>title</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field formElement="imageUploader" name="icon" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">BannerSlider</item>
+                </item>
+            </argument>
+            <settings>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <dataType>string</dataType>
+                <label translate="true">Image</label>
+                <visible>true</visible>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>true</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="dotsquares_bannerslider/index/upload" />
+                        </uploaderConfig>
+                        <previewTmpl>Dotsquares_BannerSlider/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+        <field formElement="input" name="buttontitle" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">BannerSlider</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Button Title</label>
+                <dataScope>buttontitle</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field formElement="input" name="buttonurl" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">BannerSlider</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">buttonurl</label>
+                <dataScope>buttonurl</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="select_example" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Select Type</label>
+                <dataScope>type</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">image</item>
+                                <item name="label" xsi:type="string">Image</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">bannerslider</item>
+                                <item name="label" xsi:type="string">Banner Slider</item>
+                            </option>
+                        </options>
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="discription" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">BannerSlider</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label />
+                <dataScope>discription</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

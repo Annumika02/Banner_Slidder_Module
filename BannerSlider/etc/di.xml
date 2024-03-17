@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Dotsquares\BannerSlider\Api\BannerSliderRepositoryInterface" type="Dotsquares\BannerSlider\Model\BannerSliderRepository" />
+    <preference for="Dotsquares\BannerSlider\Api\Data\BannerSliderInterface" type="Dotsquares\BannerSlider\Model\Data\BannerSlider" />
+    <preference for="Dotsquares\BannerSlider\Api\Data\BannerSliderSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <virtualType name="Dotsquares\BannerSlider\Model\ResourceModel\BannerSlider\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dotsquares_bannerslider_bannerslider</argument>
+            <argument name="resourceModel" xsi:type="string">Dotsquares\BannerSlider\Model\ResourceModel\BannerSlider\Collection</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Dotsquares\BannerSlider\ReferenceImageUpload" type="Dotsquares\BannerSlider\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">dotsquaresbannerslider/tmp/feature</argument>
+            <argument name="basePath" xsi:type="string">dotsquaresbannerslider/feature</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="gif" xsi:type="string">image/gif</item>
+                <item name="png" xsi:type="string">image/png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Dotsquares\BannerSlider\Controller\Adminhtml\Index\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Dotsquares\BannerSlider\ReferenceImageUpload</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dotsquares_bannerslider_bannerslider_listing_data_source" xsi:type="string">Dotsquares\BannerSlider\Model\ResourceModel\BannerSlider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

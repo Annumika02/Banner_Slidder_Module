@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Dotsquares_BannerSlider::BannerSlider" sortOrder="10" title="BannerSlider">
+                    <resource id="Dotsquares_BannerSlider::BannerSlider_save" sortOrder="10" title="Save BannerSlider" />
+                    <resource id="Dotsquares_BannerSlider::BannerSlider_delete" sortOrder="20" title="Delete BannerSlider" />
+                    <resource id="Dotsquares_BannerSlider::BannerSlider_update" sortOrder="30" title="Update BannerSlider" />
+                    <resource id="Dotsquares_BannerSlider::BannerSlider_view" sortOrder="40" title="View BannerSlider" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

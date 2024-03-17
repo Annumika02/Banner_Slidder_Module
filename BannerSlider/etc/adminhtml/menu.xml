@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dotsquares::top_level" module="Dotsquares_BannerSlider" resource="Magento_Backend::content" sortOrder="9999" title="Dotsquares" />
+        <add action="dotsquares_bannerslider/bannerslider/index" id="Dotsquares_BannerSlider::dotsquares_bannerslider_bannerslider" module="Dotsquares_BannerSlider" parent="Dotsquares::top_level" resource="Magento_Backend::content" sortOrder="9999" title="BannerSlider" />
+    </menu>
+</config>

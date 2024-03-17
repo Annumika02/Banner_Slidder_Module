@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Dotsquares
+ * @package   Dotsquares_BannerSlider
+ * @author    Dotsquares Team <info@dotsquares.com>
+ * @copyright 2020 Dotsquares (https://www.dotsquares.com/)
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route frontName="dotsquares_bannerslider" id="dotsquares_bannerslider">
+            <module before="Magento_Backend" name="Dotsquares_BannerSlider" />
+        </route>
+    </router>
+</config>

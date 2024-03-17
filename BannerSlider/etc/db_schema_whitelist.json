@@ -1,0 +1,19 @@
+{
+    "dotsquares_bannerslider_bannerslider": {
+        "column": {
+            "bannerslider_id": true,
+            "shorting": true,
+            "titel": true,
+            "discription": true,
+            "buttontitel": true,
+            "image": true,
+            "buttonurl": true,
+            "status": true,
+            "icon": true,
+            "type": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

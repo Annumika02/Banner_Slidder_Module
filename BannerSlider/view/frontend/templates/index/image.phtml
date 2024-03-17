@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Image view template
+ *
+ * @var $block Dotsquares\BannerSlider\Block\Index\Index
+ */
+?>
+<?php $images = $block->getActiveImages();
+$helper = $block->getHelper();
+
+if ($helper->isEnabled()) : ?>
+<?php if (count($images->getData()) > 0) : ?>
+            <?php foreach ($images->getData() as $image) : ?>
+    <div class="imagesection">
+        <picture>
+            <img src="<?= /* @noEscape */ $block->getMediaUrl() . $image['icon']; ?>" alt="<?= /* @noEscape */ $image['title']; ?>" title="<?= /* @noEscape */ $image['title']; ?>" />
+        </picture>
+        <div class="index-slide-text">
+            <div class="index-slide-text-in">
+                <p style="color:<?= /* @noEscape */ $helper->getConfig('titlecolor') ?>"><?= /* @noEscape */ $image['title']; ?></p>
+                <?= /* @noEscape */ $block->getContent($image['discription']); ?>
+                <div class="site-btn">
+                    <a class="custom-more" href="<?= /* @noEscape */ $image['buttonurl']; ?>" title="<?= /* @noEscape */ __($image['buttontitle']) ?>"><?= /* @noEscape */ __($image['buttontitle']) ?></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <?php endforeach; ?>
+        <?php //else : ?>
+            <!-- <div class="item">
+                <div class="title"><a href="#"><?= /* @noEscape */ __("There are no slider image uploaded."); ?></a></div>
+            </div> -->
+        <?php endif; ?>
+
+<?php endif; ?>

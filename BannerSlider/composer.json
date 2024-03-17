@@ -1,0 +1,22 @@
+{
+    "name": "dotsquares/module-bannerslider",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Dotsquares",
+            "email": "info@dotsquares.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Dotsquares\\BannerSlider\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

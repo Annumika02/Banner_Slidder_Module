@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * Banner view template
+ *
+ * @var $block Dotsquares\BannerSlider\Block\Index\Index
+ */
+?>
+<?php $sliders = $block->getActiveBanners();
+
+$helper = $block->getHelper();
+
+if ($helper->isEnabled()) : ?>
+<div class="index-slider">
+    <div id="home-pre-div">
+        <img class="loader" src="<?php echo $this->getViewFileUrl('Dotsquares_CustomSlider::images/ajax-loader.gif'); ?>">
+    </div>
+    <ul id="banner-slider" class="owl-carousel owl-theme owl-carousel">
+        <?php if (count($sliders->getData()) > 0) : ?>
+            <?php foreach ($sliders->getData() as $slider) : ?>
+
+                <li class="item">
+                    <picture>
+                        <img src="<?= /* @noEscape */ $block->getMediaUrl() . $slider['icon']; ?>" alt="<?= /* @noEscape */ $slider['title']; ?>" title="<?= /* @noEscape */ $slider['title']; ?>" />
+                    </picture>
+                    <div class="index-slide-text">
+                        <div class="index-slide-text-in">
+                            <p style="color:<?= /* @noEscape */ $helper->getConfig('titlecolor') ?>"><?= /* @noEscape */ $slider['title']; ?></p>
+                            <?= /* @noEscape */ $block->getContent($slider['discription']); ?>
+                            <div class="site-btn">
+                                <a class="custom-more" href="<?= /* @noEscape */ $slider['buttonurl']; ?>" title="<?= /* @noEscape */ __($slider['buttontitle']) ?>"><?= /* @noEscape */ __($slider['buttontitle']) ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="item">
+                <div class="title"><a href="#"><?= /* @noEscape */ __("There are no slider image uploaded."); ?></a></div>
+            </div>
+        <?php endif; ?>
+    </ul>
+</div>
+<script type="text/javascript" xml="space">
+    require(['jquery', 'owlcarousel', 'domReady!'], function($) {
+        $(document).ready(function() {
+            $("#banner-slider").owlCarousel({
+                    items: 1,
+                    loop: <?= /* @noEscape */ $helper->getConfig('infinity') ?>,
+                    autoplay: <?= /* @noEscape */ $helper->getConfig('autoplay') ?>,
+                    autoplayTimeout: <?= /* @noEscape */ $helper->getConfig('autoplay_timeout') ?>,
+                    nav: <?= /* @noEscape */ $helper->getConfig('nextprev') ?>,
+                    dots: <?= /* @noEscape */ $helper->getConfig('dotsnav') ?>,
+                    autoplayHoverPause: <?= /* @noEscape */ $helper->getConfig('pause') ?>,
+                    onInitialized: hideLoader
+                });
+
+            function hideLoader(event) {
+                $("#home-pre-div").hide();
+                $(".index-slider").css('height', 'auto');
+            }
+        });
+    });
+</script>
+<?php endif; ?>
